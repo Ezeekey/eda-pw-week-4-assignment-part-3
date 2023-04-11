@@ -5,12 +5,14 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const maxItems = 5;
 
+
 function addItem(item) {
     if (isFull() === false) {
         basket.push(item);
         return true;
     } return false;
 }
+
 
 function isFull() {
     if (basket.length < maxItems) {
@@ -27,11 +29,19 @@ function listItems() {
     }
 }
 
+
 function empty() {
     basket = [];
 }
 
-// TODO: Add removeItem(item)
+
+function removeItem( item ) {
+    const itemIndex = basket.indexOf( item );
+
+    if (itemIndex > -1 ) {
+        return basket.splice(itemIndex, 1);
+    } return null;
+}
 
 // Testing addItem
 console.log("Adding items: ");
@@ -41,7 +51,13 @@ console.log(addItem("Oats"));
 console.log(addItem("Beans"));
 console.log(addItem("Rice"));
 
+// Testing removeItem
+console.log("This should remove Potatoes from the basket:", removeItem("Potatoes"));
+console.log("This will remove air (expecting null):", removeItem("air"));
+
 console.log(basket);
+
+console.log(addItem("Kale"), "Kale has been added");
 
 console.log("Should be full: " + isFull());
 console.log("Attempting to add sixth item: ");
@@ -50,6 +66,7 @@ console.log(addItem("Big giant dumbbell"));
 // Testing listItems
 
 listItems();
+console.log("Emptying basket.");
 empty();
 console.log("Testing listItems with an empty list: ");
 listItems();
