@@ -27,7 +27,9 @@ function listItems() {
     }
 }
 
-// TODO: Add empty()
+function empty() {
+    basket = [];
+}
 
 // TODO: Add removeItem(item)
 
@@ -47,4 +49,7 @@ console.log(addItem("Big giant dumbbell"));
 
 // Testing listItems
 
+listItems();
+empty();
+console.log("Testing listItems with an empty list: ");
 listItems();
