@@ -5,9 +5,6 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const maxItems = 5;
 
-// TODO: Add addItem(item)
-//          Needs to return true if successful.
-//          check if full before adding item, if full return false.
 function addItem(item) {
     if (isFull() === false) {
         basket.push(item);
@@ -20,6 +17,19 @@ function isFull() {
         return false;
     } return true;
 }
+
+
+function listItems() {
+    console.log("List of items: ");
+
+    for ( item of basket ) {
+        console.log(item);
+    }
+}
+
+// TODO: Add empty()
+
+// TODO: Add removeItem(item)
 
 // Testing addItem
 console.log("Adding items: ");
@@ -35,8 +45,6 @@ console.log("Should be full: " + isFull());
 console.log("Attempting to add sixth item: ");
 console.log(addItem("Big giant dumbbell"));
 
-// TODO: Add listItems()
+// Testing listItems
 
-// TODO: Add empty()
-
-// TODO: Add removeItem(item)
+listItems();
